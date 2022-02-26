@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header"><p>Section 1</p></div>
+
+    <div class="content">
+      <p>
+        Proin pulvinar vehicula turpis, eget dignissim quam ullamcorper sit
+        amet. Maecenas vehicula consectetur lorem. Duis eu nunc id justo aliquam
+        vulputate in quis sem. Quisque ac fermentum sapien. Curabitur elementum
+        nulla nec dolor sodales, rhoncus congue nunc porttitor. Suspendisse
+        lacinia eleifend lorem at mollis. Duis sed porta purus, ut vulputate
+        ante. Maecenas id dapibus nunc. Praesent in gravida nulla. Donec nec
+        pharetra lorem.
+      </p>
+    </div>
+
+    <div class="header"><p>Section 2</p></div>
+
+    <div class="content">
+      <p>
+        Proin pulvinar vehicula turpis, eget dignissim quam ullamcorper sit
+        amet. Maecenas vehicula consectetur lorem. Duis eu nunc id justo aliquam
+        vulputate in quis sem. Quisque ac fermentum sapien. Curabitur elementum
+        nulla nec dolor sodales, rhoncus congue nunc porttitor. Suspendisse
+        lacinia eleifend lorem at mollis. Duis sed porta purus, ut vulputate
+        ante. Maecenas id dapibus nunc. Praesent in gravida nulla. Donec nec
+        pharetra lorem.
+      </p>
+    </div>
+
+    <div class="header"><p>Section 3</p></div>
+
+    <div class="content">
+      <p>
+        Proin pulvinar vehicula turpis, eget dignissim quam ullamcorper sit
+        amet. Maecenas vehicula consectetur lorem. Duis eu nunc id justo aliquam
+        vulputate in quis sem. Quisque ac fermentum sapien. Curabitur elementum
+        nulla nec dolor sodales, rhoncus congue nunc porttitor. Suspendisse
+        lacinia eleifend lorem at mollis. Duis sed porta purus, ut vulputate
+        ante. Maecenas id dapibus nunc. Praesent in gravida nulla. Donec nec
+        pharetra lorem.
+      </p>
+    </div>
+
+    <script>
+      var header = document.getElementsByClassName("header");
+
+      for (let i = 0; i < header.length; i++) {
+        header[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+
+          var content = document.querySelectorAll(".content");
+
+          content = this.nextElementSibling;
+
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

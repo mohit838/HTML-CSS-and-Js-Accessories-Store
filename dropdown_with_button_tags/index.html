@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="click">Click Me</button>
+
+      <div class="list">
+        <button class="links">Link 1</button>
+
+        <button class="links">Link 2</button>
+
+        <button class="links">Link 3</button>
+
+        <button class="links">Link 4</button>
+
+        <button class="links">Link 5</button>
+      </div>
+    </div>
+
+    <script>
+      let click = document.querySelector(".click");
+
+      let list = document.querySelector(".list");
+
+      click.addEventListener("click", () => {
+        list.classList.toggle("newlist");
+      });
+    </script>
+  </body>
+</html>

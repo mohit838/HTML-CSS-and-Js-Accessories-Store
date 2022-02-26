@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <div class="total-cases block">
+        <p class="numbers">0</p>
+
+        <p class="label">Total Cases</p>
+      </div>
+
+      <div class="active-cases block">
+        <p class="numbers">0</p>
+
+        <p class="label">Active Cases</p>
+      </div>
+
+      <div class="death-cases block">
+        <p class="numbers">0</p>
+
+        <p class="label">Deaths</p>
+      </div>
+
+      <div class="recovered-cases block">
+        <p class="numbers">0</p>
+
+        <p class="label">Recovered Cases</p>
+      </div>
+
+      <div class="news">
+        <!-- loaded with ajax request -->
+      </div>
+    </section>
+    <script>
+      fetch(
+        "https://covid-19-statistics.p.rapidapi.com/reports/total?date=2020-04-07",
+        {
+          method: "GET",
+
+          headers: {
+            "x-rapidapi-key":
+              "2d2dea647fmsh577c57bb54abd69p13249djsn06827c6f1fe8",
+
+            "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
+          },
+        }
+      )
+        .then((response) => response.json())
+
+        .then((data) => {
+          var numbers = document.querySelectorAll(".numbers");
+
+          num = new Intl.NumberFormat("en-US");
+
+          numbers[0].innerHTML = num.format(data.data.confirmed);
+
+          numbers[1].innerHTML = num.format(data.data.active);
+
+          numbers[2].innerHTML = num.format(data.data.deaths);
+
+          numbers[3].innerHTML = num.format(data.data.recovered);
+        })
+
+        .catch((err) => {
+          console.error(err);
+        });
+
+      // news ajax request
+
+      fetch(
+        "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True",
+        {
+          method: "GET",
+
+          headers: {
+            "x-rapidapi-key":
+              "2d2dea647fmsh577c57bb54abd69p13249djsn06827c6f1fe8",
+
+            "x-rapidapi-host": "covid-19-news.p.rapidapi.com",
+          },
+        }
+      )
+        .then((response) => response.json())
+
+        .then((data) => {
+          var news = document.querySelector(".news");
+
+          for (let i = 0; i < 20; i++) {
+            var newsData = `<div class="card">
+
+    <img src="${data.articles[i].media}" alt="news_image">
+
+    <p class="headline">${data.articles[i].title}</p>
+
+    <p class="summary">${data.articles[i].summary}</p>
+
+    <a href="${data.articles[i].link}" class="read-more">
+
+        <button>Read More</button>
+
+    </a>
+
+</div>`;
+
+            news.innerHTML += newsData;
+          }
+        })
+
+        .catch((err) => {
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>

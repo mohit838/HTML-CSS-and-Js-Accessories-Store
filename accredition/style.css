@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  color: #fff;
+
+  font-family: Futura Md BT;
+}
+
+body {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  margin: 150px 0;
+}
+
+.header {
+  width: 80%;
+
+  background-color: #2ec4b6;
+
+  transition: 0.3s;
+
+  border-bottom: 1px solid #000;
+}
+
+.header p {
+  padding: 20px 25px;
+
+  font-size: 1.3em;
+}
+
+.content {
+  width: 80%;
+
+  background-color: #03254e;
+
+  transition: 0.3s;
+
+  overflow: hidden;
+
+  max-height: 0;
+}
+
+.content p {
+  width: 80%;
+
+  padding: 20px 0;
+
+  margin: 0 auto;
+
+  font-size: 1.2em;
+}
+
+.header:hover,
+.active {
+  background-color: #3553ff;
+}
